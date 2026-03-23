@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+:root {
+  --background: 213 45% 67%;
+  --foreground: 0 0% 100%;
+  --muted-foreground: 0 0% 88%;
+  --stroke: 0 0% 18%;
+  --radius: 9999px;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-body), sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.bg-bg {
+  background-color: hsl(var(--background));
+}
+
+.text-text {
+  color: hsl(var(--foreground));
+}
+
+.text-muted {
+  color: hsl(var(--muted-foreground));
+}
+
+.bg-stroke\/50 {
+  background-color: hsl(var(--stroke) / 0.5);
+}
+
+button,
+a,
+.rounded-pill {
+  border-radius: var(--radius);
+}
+
+.liquid-glass,
+.liquid-glass-strong {
+  position: relative;
+  border: 0;
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+}
+
+.liquid-glass {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.liquid-glass-strong {
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow:
+    4px 4px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+.liquid-glass::before,
+.liquid-glass-strong::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.08) 48%,
+    rgba(255, 255, 255, 0.08) 52%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.liquid-glass-strong::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.14) 48%,
+    rgba(255, 255, 255, 0.14) 52%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+}
+
+.cinematic-vignette {
+  background:
+    radial-gradient(circle at center, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.3) 100%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.13) 100%);
+}
+
+.cinematic-scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.055) 0,
+    rgba(255, 255, 255, 0.055) 1px,
+    rgba(255, 255, 255, 0) 2px,
+    rgba(255, 255, 255, 0) 5px
+  );
+  mix-blend-mode: soft-light;
+  opacity: 0.34;
+}
+
+.text-shadow-soft {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.34);
+}
